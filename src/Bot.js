@@ -25,9 +25,12 @@ export default class Bot {
 
 	/**
 	 *
-	 * @param {string} code
+	 * @param {object} config
+	 * @param {string} config.id
+	 * @param {string} config.code
 	 */
-	constructor(code) {
+	constructor(config) {
+		this.id = config.id;
 		this.createBotCode(code);
 	}
 

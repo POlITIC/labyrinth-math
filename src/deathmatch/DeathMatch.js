@@ -1,6 +1,19 @@
+import Labyrinth from "../Labyrinth";
+import Bot from "../Bot";
+
 export default  class  DeathMatch {
-	constructor(labyrinth, bots) {
-		this.labyrinth = labyrinth;
+	constructor(labyrinthConfig, botConfigs) {
+		this.labyrinth = new Labyrinth(labyrinthConfig);
+
+		this.createBots(botConfigs);
+	}
+
+	createBots(botConfigs) {
+		const bots = [];
+
+		botConfigs.forEach((conf) => {
+			bots.push(new Bot(conf));
+		});
 
 		this.bots = bots;
 	}
